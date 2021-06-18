@@ -1,4 +1,8 @@
-export const Crear = () => {
+import PropTypes from "prop-types";
+import { datosPalabras } from "../schemas/datosPalabras";
+
+export const Crear = (props) => {
+  const { palabras, setPalabras } = props;
   return (
     <section className="crear-palabras">
       <form className="form-palabras">
@@ -27,4 +31,9 @@ export const Crear = () => {
       </form>
     </section>
   );
+};
+
+Crear.propTypes = {
+  palabras: datosPalabras,
+  setPalabras: PropTypes.func.isRequired,
 };

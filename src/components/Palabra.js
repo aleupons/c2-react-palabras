@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { datosPalabras } from "../schemas/datosPalabras";
 
 export const Palabra = (props) => {
   const { palabra, dataLenguaje } = props;
@@ -6,6 +7,6 @@ export const Palabra = (props) => {
 };
 
 Palabra.propTypes = {
-  palabra: PropTypes.string.isRequired,
+  palabra: datosPalabras,
   dataLenguaje: PropTypes.bool.isRequired,
 };

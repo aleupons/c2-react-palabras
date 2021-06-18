@@ -1,4 +1,7 @@
-export const Info = () => {
+import { datosPalabras } from "../schemas/datosPalabras";
+
+export const Info = (props) => {
+  const { palabras } = props;
   return (
     <section className="info">
       <ul>
@@ -21,4 +24,8 @@ export const Info = () => {
       </ul>
     </section>
   );
+};
+
+Info.propTypes = {
+  palabras: datosPalabras,
 };
