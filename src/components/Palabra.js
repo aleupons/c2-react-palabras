@@ -15,8 +15,10 @@ export const Palabra = (props) => {
 
 Palabra.propTypes = {
   palabra: PropTypes.shape({
+    id: PropTypes.number,
     palabra: PropTypes.string.isRequired,
     dataLenguaje: PropTypes.bool.isRequired,
+    usos: PropTypes.number,
   }),
   anyadirPalabra: PropTypes.func,
   borrarPalabra: PropTypes.func,

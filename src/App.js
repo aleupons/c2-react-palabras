@@ -33,7 +33,12 @@ function App() {
   const [frase, setFrase] = useState([]);
   return (
     <>
-      <Palabras palabras={palabras} frase={frase} setFrase={setFrase} />
+      <Palabras
+        palabras={palabras}
+        setPalabras={setPalabras}
+        frase={frase}
+        setFrase={setFrase}
+      />
       <Crear palabras={palabras} setPalabras={setPalabras} />
       <Info frase={frase} />
     </>

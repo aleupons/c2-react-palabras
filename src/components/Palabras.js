@@ -4,18 +4,36 @@ import { Frase } from "./Frase";
 import { Palabra } from "./Palabra";
 
 export const Palabras = (props) => {
-  const { palabras, frase, setFrase } = props;
+  const { palabras, setPalabras, frase, setFrase } = props;
   const [idMasAlta, setIdMasAlta] = useState(
     frase
       .map((palabra) => palabra.id)
       .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 1)
   );
-  const anyadirPalabra = ({ palabra, dataLenguaje }) => {
+  const anyadirPalabra = ({ palabra, dataLenguaje, usos }) => {
+    if (palabra.usos === 0) {
+      return;
+    }
     setIdMasAlta(idMasAlta + 1);
     setFrase([
       ...frase,
-      { id: idMasAlta, palabra: palabra, dataLenguaje: dataLenguaje },
+      {
+        id: idMasAlta,
+        palabra: palabra,
+        dataLenguaje: dataLenguaje,
+        usos: usos,
+      },
     ]);
+    if (palabra.usos) {
+      setPalabras(
+        palabras.map((palabraArray) => {
+          if (palabraArray.id === palabra.id) {
+            palabraArray.usos = palabraArray.usos - 1;
+          }
+          return palabraArray;
+        })
+      );
+    }
   };
   const borrarPalabra = (palabra) => {
     setFrase(frase.filter((palabraFrase) => palabra.id !== palabraFrase.id));
@@ -39,6 +57,7 @@ export const Palabras = (props) => {
 
 Palabras.propTypes = {
   palabras: PropTypes.array.isRequired,
+  setPalabras: PropTypes.func.isRequired,
   frase: PropTypes.array.isRequired,
   setFrase: PropTypes.func.isRequired,
 };

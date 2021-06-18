@@ -15,10 +15,13 @@ export const Crear = (props) => {
     e.preventDefault();
     if (
       nuevaPalabra.includes(" ") ||
-      palabras.map(
-        (palabra) =>
+      palabras.reduce(
+        (acumulador, palabra) =>
           palabra.palabra.toLowerCase() === nuevaPalabra.toLowerCase()
-      )
+            ? acumulador + 1
+            : acumulador,
+        0
+      ) !== 0
     ) {
       return;
     }
@@ -54,10 +57,10 @@ export const Crear = (props) => {
             onChange={(e) => setUsos(+e.target.value)}
             required
           >
-            <option value={0} defaultValue>
+            <option value={-1} defaultValue>
               Máximo de veces
             </option>
-            <option value={0}>Sin límite</option>
+            <option value={-1}>Sin límite</option>
             <option value={1}>1 vez</option>
             <option value={2}>2 veces</option>
             <option value={3}>3 veces</option>
