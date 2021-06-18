@@ -1,25 +1,43 @@
-import { datosPalabras } from "../schemas/datosPalabras";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Frase } from "./Frase";
 import { Palabra } from "./Palabra";
 
 export const Palabras = (props) => {
   const { palabras } = props;
+  const [frase, setFrase] = useState([]);
+  const [idMasAlta, setIdMasAlta] = useState(
+    frase
+      .map((palabra) => palabra.id)
+      .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 1)
+  );
+  const anyadirPalabra = ({ id, palabra, dataLenguaje }) => {
+    setIdMasAlta(idMasAlta + 1);
+    setFrase([
+      ...frase,
+      { id: idMasAlta, palabra: palabra, dataLenguaje: dataLenguaje },
+    ]);
+  };
+  const borrarPalabra = (palabra) => {
+    setFrase(frase.filter((palabraFrase) => palabra.id !== palabraFrase.id));
+  };
   return (
     <section className="palabras">
       <ul className="lista-palabras">
-        {palabras.map(({ palabra, dataLenguaje }) => (
+        {palabras.map((palabra) => (
           <Palabra
-            key={palabra}
+            key={palabra.id}
             palabra={palabra}
-            dataLenguaje={dataLenguaje}
+            anyadirPalabra={anyadirPalabra}
+            frase={false}
           />
         ))}
       </ul>
-      <Frase palabras={palabras} />
+      <Frase frase={frase} borrarPalabra={borrarPalabra} />
     </section>
   );
 };
 
 Palabras.propTypes = {
-  palabras: datosPalabras,
+  palabras: PropTypes.array.isRequired,
 };

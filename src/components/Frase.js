@@ -1,11 +1,23 @@
 import PropTypes from "prop-types";
-import { datosPalabras } from "../schemas/datosPalabras";
+import { Palabra } from "./Palabra";
 
 export const Frase = (props) => {
-  const { palabras } = props;
-  return <ul className="resultado"></ul>;
+  const { frase, borrarPalabra } = props;
+  return (
+    <ul className="resultado">
+      {frase.map((palabra) => (
+        <Palabra
+          key={palabra.id}
+          palabra={palabra}
+          borrarPalabra={borrarPalabra}
+          frase={true}
+        />
+      ))}
+    </ul>
+  );
 };
 
 Frase.propTypes = {
-  palabras: datosPalabras,
+  frase: PropTypes.array.isRequired,
+  borrarPalabra: PropTypes.func.isRequired,
 };

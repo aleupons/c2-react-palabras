@@ -1,12 +1,22 @@
 import PropTypes from "prop-types";
-import { datosPalabras } from "../schemas/datosPalabras";
 
 export const Palabra = (props) => {
-  const { palabra, dataLenguaje } = props;
-  return <li>{palabra}</li>;
+  const { palabra, anyadirPalabra, borrarPalabra, frase } = props;
+  return (
+    <li
+      onClick={() => (frase ? borrarPalabra(palabra) : anyadirPalabra(palabra))}
+    >
+      {palabra.palabra}
+    </li>
+  );
 };
 
 Palabra.propTypes = {
-  palabra: datosPalabras,
-  dataLenguaje: PropTypes.bool.isRequired,
+  palabra: PropTypes.shape({
+    palabra: PropTypes.string.isRequired,
+    dataLenguaje: PropTypes.bool.isRequired,
+  }),
+  anyadirPalabra: PropTypes.func,
+  borrarPalabra: PropTypes.func,
+  frase: PropTypes.bool.isRequired,
 };

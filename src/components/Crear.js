@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { datosPalabras } from "../schemas/datosPalabras";
 
 export const Crear = (props) => {
   const { palabras, setPalabras } = props;
@@ -34,6 +33,6 @@ export const Crear = (props) => {
 };
 
 Crear.propTypes = {
-  palabras: datosPalabras,
+  palabras: PropTypes.array.isRequired,
   setPalabras: PropTypes.func.isRequired,
 };

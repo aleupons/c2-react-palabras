@@ -5,36 +5,36 @@ import { Palabras } from "./components/Palabras";
 
 function App() {
   const [palabras, setPalabras] = useState([
-    { palabra: "me", dataLenguaje: false },
-    { palabra: "JavaScript", dataLenguaje: true },
-    { palabra: "el", dataLenguaje: false },
-    { palabra: "la", dataLenguaje: false },
-    { palabra: "gusta", dataLenguaje: false },
-    { palabra: "odio", dataLenguaje: false },
-    { palabra: "no", dataLenguaje: false },
-    { palabra: "muy", dataLenguaje: false },
-    { palabra: "y", dataLenguaje: false },
-    { palabra: "Java", dataLenguaje: true },
-    { palabra: "mucho", dataLenguaje: false },
-    { palabra: "de", dataLenguaje: false },
-    { palabra: "poco", dataLenguaje: false },
-    { palabra: "programador", dataLenguaje: false },
-    { palabra: "amigo", dataLenguaje: false },
-    { palabra: "programadora", dataLenguaje: false },
-    { palabra: "amiga", dataLenguaje: false },
-    { palabra: "soy", dataLenguaje: false },
-    { palabra: "también", dataLenguaje: false },
-    { palabra: "pero", dataLenguaje: false },
-    { palabra: "gustan", dataLenguaje: false },
-    { palabra: "gatos", dataLenguaje: false },
-    { palabra: "los", dataLenguaje: false },
-    { palabra: "perros", dataLenguaje: false },
+    { id: 1, palabra: "me", dataLenguaje: false },
+    { id: 2, palabra: "JavaScript", dataLenguaje: true },
+    { id: 3, palabra: "el", dataLenguaje: false },
+    { id: 4, palabra: "la", dataLenguaje: false },
+    { id: 5, palabra: "gusta", dataLenguaje: false },
+    { id: 6, palabra: "odio", dataLenguaje: false },
+    { id: 7, palabra: "no", dataLenguaje: false },
+    { id: 8, palabra: "muy", dataLenguaje: false },
+    { id: 9, palabra: "y", dataLenguaje: false },
+    { id: 10, palabra: "Java", dataLenguaje: true },
+    { id: 11, palabra: "mucho", dataLenguaje: false },
+    { id: 12, palabra: "de", dataLenguaje: false },
+    { id: 13, palabra: "poco", dataLenguaje: false },
+    { id: 14, palabra: "programador", dataLenguaje: false },
+    { id: 15, palabra: "amigo", dataLenguaje: false },
+    { id: 16, palabra: "programadora", dataLenguaje: false },
+    { id: 17, palabra: "amiga", dataLenguaje: false },
+    { id: 18, palabra: "soy", dataLenguaje: false },
+    { id: 19, palabra: "también", dataLenguaje: false },
+    { id: 20, palabra: "pero", dataLenguaje: false },
+    { id: 21, palabra: "gustan", dataLenguaje: false },
+    { id: 22, palabra: "gatos", dataLenguaje: false },
+    { id: 23, palabra: "los", dataLenguaje: false },
+    { id: 24, palabra: "perros", dataLenguaje: false },
   ]);
   return (
     <>
       <Palabras palabras={palabras} />
       <Crear palabras={palabras} setPalabras={setPalabras} />
-      <Info palabras={palabras} />
+      <Info />
     </>
   );
 }
