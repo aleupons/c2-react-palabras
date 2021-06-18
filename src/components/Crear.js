@@ -12,8 +12,17 @@ export const Crear = (props) => {
       .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 1)
   );
   const anyadirNuevaPalabra = (e, nuevaPalabra, lenguaje, usos) => {
-    setIdMasAlta(idMasAlta + 1);
     e.preventDefault();
+    if (
+      nuevaPalabra.includes(" ") ||
+      palabras.map(
+        (palabra) =>
+          palabra.palabra.toLowerCase() === nuevaPalabra.toLowerCase()
+      )
+    ) {
+      return;
+    }
+    setIdMasAlta(idMasAlta + 1);
     setPalabras([
       ...palabras,
       {
