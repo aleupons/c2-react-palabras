@@ -11,7 +11,7 @@ export const Palabras = (props) => {
       .map((palabra) => palabra.id)
       .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 1)
   );
-  const anyadirPalabra = ({ id, palabra, dataLenguaje }) => {
+  const anyadirPalabra = ({ palabra, dataLenguaje }) => {
     setIdMasAlta(idMasAlta + 1);
     setFrase([
       ...frase,
