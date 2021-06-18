@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 
 export const Palabra = (props) => {
-  const { palabra, anyadirPalabra, borrarPalabra, frase } = props;
+  const { palabra, anyadirPalabra, borrarPalabra, frase, first } = props;
   return (
     <li
       onClick={() => (frase ? borrarPalabra(palabra) : anyadirPalabra(palabra))}
     >
-      {palabra.palabra}
+      {first
+        ? palabra.palabra.charAt(0).toUpperCase() + palabra.palabra.slice(1)
+        : palabra.palabra}
     </li>
   );
 };
@@ -19,4 +21,5 @@ Palabra.propTypes = {
   anyadirPalabra: PropTypes.func,
   borrarPalabra: PropTypes.func,
   frase: PropTypes.bool.isRequired,
+  first: PropTypes.bool,
 };
