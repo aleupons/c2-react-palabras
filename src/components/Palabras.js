@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Frase } from "./Frase";
 import { Palabra } from "./Palabra";
 
 export const Palabras = (props) => {
-  const { palabras } = props;
-  const [frase, setFrase] = useState([]);
+  const { palabras, frase, setFrase } = props;
   const [idMasAlta, setIdMasAlta] = useState(
     frase
       .map((palabra) => palabra.id)
@@ -40,4 +39,6 @@ export const Palabras = (props) => {
 
 Palabras.propTypes = {
   palabras: PropTypes.array.isRequired,
+  frase: PropTypes.array.isRequired,
+  setFrase: PropTypes.func.isRequired,
 };

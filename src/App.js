@@ -30,11 +30,12 @@ function App() {
     { id: 23, palabra: "los", dataLenguaje: false },
     { id: 24, palabra: "perros", dataLenguaje: false },
   ]);
+  const [frase, setFrase] = useState([]);
   return (
     <>
-      <Palabras palabras={palabras} />
+      <Palabras palabras={palabras} frase={frase} setFrase={setFrase} />
       <Crear palabras={palabras} setPalabras={setPalabras} />
-      <Info />
+      <Info frase={frase} />
     </>
   );
 }
