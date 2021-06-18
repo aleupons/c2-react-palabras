@@ -1,3 +1,3 @@
 export const Frase = () => {
-  return <p>Frase</p>;
+  return <ul className="resultado"></ul>;
 };

@@ -1,3 +1,4 @@
-export const Palabra = () => {
-  return <p>Palabra</p>;
+export const Palabra = (props) => {
+  const { palabra, dataLenguaje } = props;
+  return <li>{palabra}</li>;
 };
