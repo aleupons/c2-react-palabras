@@ -11,7 +11,11 @@ export const Palabras = (props) => {
       .reduce((acumulador, id) => (id > acumulador ? id : acumulador), 1)
   );
   const anyadirPalabra = ({ palabra, dataLenguaje, usos }) => {
-    if (palabra.usos === 0) {
+    const nVecesAnyadida = frase.filter(
+      (palabraFrase) => palabraFrase.palabra === palabra
+    ).length;
+    console.log(nVecesAnyadida);
+    if (usos > 0 && usos === nVecesAnyadida) {
       return;
     }
     setIdMasAlta(idMasAlta + 1);
@@ -24,16 +28,6 @@ export const Palabras = (props) => {
         usos: usos,
       },
     ]);
-    if (palabra.usos !== 0 && palabra.usos !== -1) {
-      setPalabras(
-        palabras.map((palabraArray) => {
-          if (palabraArray.id === palabra.id) {
-            palabraArray.usos--;
-          }
-          return palabraArray;
-        })
-      );
-    }
   };
   const borrarPalabra = (palabra) => {
     setFrase(frase.filter((palabraFrase) => palabra.id !== palabraFrase.id));
