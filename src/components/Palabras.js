@@ -24,11 +24,11 @@ export const Palabras = (props) => {
         usos: usos,
       },
     ]);
-    if (palabra.usos) {
+    if (palabra.usos !== 0 && palabra.usos !== -1) {
       setPalabras(
         palabras.map((palabraArray) => {
           if (palabraArray.id === palabra.id) {
-            palabraArray.usos = palabraArray.usos - 1;
+            palabraArray.usos--;
           }
           return palabraArray;
         })

@@ -24,7 +24,8 @@ export const Info = (props) => {
                 (acumulador, longitudPalabra, i, longitudes) =>
                   longitudPalabra / longitudes.length + acumulador,
                 0
-              )}
+              )
+              .toFixed(2)}
           </span>
         </li>
         <li>
