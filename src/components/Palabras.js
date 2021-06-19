@@ -4,7 +4,7 @@ import { Frase } from "./Frase";
 import { Palabra } from "./Palabra";
 
 export const Palabras = (props) => {
-  const { palabras, setPalabras, frase, setFrase } = props;
+  const { palabras, frase, setFrase } = props;
   const [idMasAlta, setIdMasAlta] = useState(
     frase
       .map((palabra) => palabra.id)
@@ -51,7 +51,6 @@ export const Palabras = (props) => {
 
 Palabras.propTypes = {
   palabras: PropTypes.array.isRequired,
-  setPalabras: PropTypes.func.isRequired,
   frase: PropTypes.array.isRequired,
   setFrase: PropTypes.func.isRequired,
 };

@@ -1,5 +1,9 @@
 export const Info = (props) => {
   const { frase } = props;
+  const lenguajes = frase
+    .filter((palabra) => palabra.dataLenguaje)
+    .map((palabraLenguaje) => palabraLenguaje.palabra)
+    .filter((palabra, i, palabras) => palabras.indexOf(palabra) === i);
   return (
     <section className="info">
       <ul>
@@ -29,19 +33,11 @@ export const Info = (props) => {
           </span>
         </li>
         <li>
-          Contiene{" "}
-          {frase.reduce(
-            (acumulador, palabra) =>
-              palabra.dataLenguaje ? acumulador + 1 : acumulador,
-            0
-          )}{" "}
-          lenguaje/s de programación
+          Contiene {lenguajes.length} lenguaje/s de programación
           <ul>
-            {frase
-              .filter((palabra) => palabra.dataLenguaje)
-              .map((palabraLenguaje) => (
-                <li>{palabraLenguaje.palabra}</li>
-              ))}
+            {lenguajes.map((lenguaje) => (
+              <li>{lenguaje}</li>
+            ))}
           </ul>
         </li>
       </ul>
